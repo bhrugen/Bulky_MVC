@@ -1,6 +1,9 @@
 ﻿@model List<Category>
-
-    <div class="container">
+@if (TempData["success"] != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+<div class="container">
         <div class="row pt-4 pb-3">
             <div class="col-6">
                 <h2 class="text-primary">
@@ -39,7 +42,7 @@
                         <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
                                 <i class="bi bi-pencil-square"></i> Edit
                         </a>
-                            <a asp-controller="Category" asp-action="Delete" class="btn btn-danger mx-2">
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
                                 <i class="bi bi-trash-fill"></i> Delete
                             </a>
                     </div>
