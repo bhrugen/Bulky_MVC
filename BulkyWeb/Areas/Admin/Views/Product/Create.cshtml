@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select border-0 shadow">
+                    <select asp-for="CategoryId" asp-items="@(ViewData["CategoryList"] as IEnumerable<SelectListItem>)" class="form-select border-0 shadow">
                         <option disabled selected>--Select Category--</option>
                     </select>
                     <label asp-for="CategoryId" class="ms-2"></label>
