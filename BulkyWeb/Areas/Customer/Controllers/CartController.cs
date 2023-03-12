@@ -1,4 +1,5 @@
 ﻿using BulkyBook.DataAccess.Repository.IRepository;
+using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,26 @@ namespace BulkyBookWeb.Areas.Customer.Controllers {
 				includeProperties: "Product")
 			};
 
+			foreach(var cart in ShoppingCartVM.ShoppingCartList) {
+				double price = GetPriceBasedOnQuantity(cart);
+				ShoppingCartVM.OrderTotal += (price * cart.Count);
+			}
+
 			return View(ShoppingCartVM);
+		}
+
+		private double GetPriceBasedOnQuantity(ShoppingCart shoppingCart) {
+			if (shoppingCart.Count <= 50) {
+				return shoppingCart.Product.Price;
+			}
+			else {
+				if (shoppingCart.Count <= 100) {
+					return shoppingCart.Product.Price50;
+				}
+				else {
+					return shoppingCart.Product.Price100;
+				}
+			}
 		}
 	}
 }
