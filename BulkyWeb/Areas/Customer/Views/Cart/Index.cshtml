@@ -40,17 +40,17 @@
                             </div>
                             <div class="col-6 col-sm-4 col-lg-6 pt-2">
                                 <div class="w-75 btn-group" role="group">
-                                    <a class="btn btn-outline-primary bg-gradient py-2">
+                                    <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2">
                                         <i class="bi bi-plus-square"></i>
                                     </a> &nbsp;
-                                    <a class="btn btn-outline-primary bg-gradient py-2">
+                                        <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-outline-primary bg-gradient py-2">
                                         <i class="bi bi-dash-square"></i>
                                     </a>
                                 </div>
 
                             </div>
                             <div class="col-3 col-sm-4 col-lg-2 offset-lg-1 text-right pt-2">
-                                <a href="#" class="btn btn-danger bg-gradient py-2 ">
+                                    <a asp-action="remove" asp-route-cartId="@item.Id" class="btn btn-danger bg-gradient py-2 ">
                                     <i class="bi bi-trash-fill"></i>
                                 </a>
                             </div>
