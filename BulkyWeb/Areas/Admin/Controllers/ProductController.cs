@@ -6,7 +6,6 @@ using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Stripe;
 using System.Collections.Generic;
 using System.Data;
 
