@@ -92,8 +92,14 @@
                     </div>
                 </div>
                 <div class="col-2">
-                   @* <img src="@Model.Product.ImageUrl" width="100%"
-                         style="border-radius:5px; border:1px solid #bbb9b9" />*@
+                    @if (Model.Product.ProductImages != null) {
+                        foreach(var image in Model.Product.ProductImages) {
+                            <div class="border p-1 m-2 text-center">
+                                <img src="@image.ImageUrl" width="100%"
+                                     style="border-radius:5px; border:1px solid #bbb9b9" />
+                            </div>
+                        }
+                    }
                 </div>
             </div>
            
